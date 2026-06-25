@@ -14,7 +14,19 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/ping", "/auth/**", "/retos/**", "/participaciones/**","/admin/**","/usuarios/**").permitAll()
+                        .requestMatchers(
+                                "/ping",
+                                "/auth/**",
+                                "/retos/**",
+                                "/participaciones/**",
+                                "/admin/**",
+                                "/usuarios/**",
+                                "/insignias/**",
+                                "/admin/insignias/**",
+                                "/ranking/**",
+                                "/propuestas/**",
+                                "/admin/propuestas/**"
+                        ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults());
