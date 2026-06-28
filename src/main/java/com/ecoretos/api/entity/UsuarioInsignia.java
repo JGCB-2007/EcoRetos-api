@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+import jakarta.persistence.PrePersist;
 import java.time.LocalDateTime;
 
 @Entity
@@ -29,4 +29,11 @@ public class UsuarioInsignia {
 
     @Column(name = "FechaAsignacion", nullable = false)
     private LocalDateTime fechaAsignacion;
+
+    @PrePersist
+    public void prePersist() {
+        if (fechaAsignacion == null) {
+            fechaAsignacion = java.time.LocalDateTime.now();
+        }
+    }
 }
