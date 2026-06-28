@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.time.LocalDateTime;
 
 import java.time.LocalDateTime;
 
@@ -38,4 +39,7 @@ public class Participacion {
 
     @Column(name = "ObservacionAdmin", length = 300)
     private String observacionAdmin;
+
+    @Column(name = "FechaAprobacion")
+    private LocalDateTime fechaAprobacion;
 }

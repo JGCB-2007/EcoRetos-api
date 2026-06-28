@@ -102,6 +102,7 @@ public class EvidenciaService {
 
         Participacion participacion = evidencia.getParticipacion();
         participacion.setEstado("APROBADO");
+        participacion.setFechaAprobacion(LocalDateTime.now());
 
         Usuario usuario = participacion.getUsuario();
         Integer puntos = participacion.getReto().getPuntos();
