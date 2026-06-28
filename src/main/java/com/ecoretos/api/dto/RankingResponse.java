@@ -6,6 +6,8 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class RankingResponse {
+
+    private Integer posicion;
     private Integer idUsuario;
     private String nombreCompleto;
     private String cif;

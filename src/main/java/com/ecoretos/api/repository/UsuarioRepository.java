@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     Optional<Usuario> findByCif(String cif);
     List<Usuario> findByRolAndActivoTrueOrderByPuntosTotalesDesc(String rol);
+    List<Usuario> findByRolAndActivoTrueOrderByPuntosTotalesDescNombreCompletoAsc(String rol);
 }
