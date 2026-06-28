@@ -1,6 +1,6 @@
 package com.ecoretos.api.service;
 
-import com.ecoretos.api.dto.EvidenciaRequest;
+
 import com.ecoretos.api.dto.EvidenciaResponse;
 import com.ecoretos.api.entity.Evidencia;
 import com.ecoretos.api.entity.Participacion;
@@ -9,11 +9,8 @@ import com.ecoretos.api.repository.ParticipacionRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import com.ecoretos.api.dto.EvidenciaAdminResponse;
-import com.ecoretos.api.entity.Evidencia;
 import java.time.LocalDateTime;
 import com.ecoretos.api.dto.AccionEvidenciaResponse;
-import com.ecoretos.api.entity.Evidencia;
-import com.ecoretos.api.entity.Participacion;
 import com.ecoretos.api.entity.Usuario;
 import com.ecoretos.api.repository.UsuarioRepository;
 import com.ecoretos.api.service.InsigniaService;
@@ -38,7 +35,7 @@ public class EvidenciaService {
         this.insigniaService = insigniaService;
     }
 
-    public EvidenciaResponse registrarEvidencia(Integer idParticipacion, EvidenciaRequest request) {
+    public EvidenciaResponse registrarEvidencia(Integer idParticipacion, String urlImagen) {
         Participacion participacion = participacionRepository.findById(idParticipacion)
                 .orElseThrow(() -> new RuntimeException("Participación no encontrada"));
 
@@ -52,12 +49,12 @@ public class EvidenciaService {
 
         Evidencia evidencia = new Evidencia();
         evidencia.setParticipacion(participacion);
-        evidencia.setUrlImagen(request.getUrlImagen());
+        evidencia.setUrlImagen(urlImagen);
         evidencia.setFechaSubida(LocalDateTime.now());
         evidencia.setEstadoValidacion("PENDIENTE");
-        evidencia.setResultadoIA(request.getResultadoIA());
-        evidencia.setConfianzaIA(request.getConfianzaIA());
-        evidencia.setEtiquetasDetectadas(request.getEtiquetasDetectadas());
+        evidencia.setResultadoIA(null);
+        evidencia.setConfianzaIA(null);
+        evidencia.setEtiquetasDetectadas(null);
 
         Evidencia guardada = evidenciaRepository.save(evidencia);
 
