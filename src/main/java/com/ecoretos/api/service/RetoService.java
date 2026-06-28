@@ -11,6 +11,8 @@ import com.ecoretos.api.repository.ParticipacionRepository;
 import com.ecoretos.api.repository.RetoRepository;
 import com.ecoretos.api.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
+import com.ecoretos.api.dto.EditarRetoRequest;
+
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -30,6 +32,23 @@ public class RetoService {
         this.retoRepository = retoRepository;
         this.usuarioRepository = usuarioRepository;
         this.participacionRepository = participacionRepository;
+    }
+
+    public List<RetoResponse> listarRetosAdmin() {
+        return retoRepository.findByActivoTrue()
+                .stream()
+                .map(reto -> new RetoResponse(
+                        reto.getIdReto(),
+                        reto.getTitulo(),
+                        reto.getDescripcion(),
+                        reto.getPuntos(),
+                        reto.getDificultad(),
+                        reto.getTipoValidacion(),
+                        reto.getFechaInicio(),
+                        reto.getFechaFin(),
+                        reto.getDuracionHoras()
+                ))
+                .toList();
     }
     public ParticipacionResponse aceptarReto(Integer idReto, Integer idUsuario) {
         Usuario usuario = usuarioRepository.findById(idUsuario)
@@ -158,13 +177,8 @@ public class RetoService {
                 guardado.getDuracionHoras()
         );
     }
-    public RetoResponse editarRetoAdmin(Integer idReto, CrearRetoRequest request) {
-        Usuario admin = usuarioRepository.findById(request.getCreadoPor())
-                .orElseThrow(() -> new RuntimeException("Administrador no encontrado"));
 
-        if (!"ADMINISTRADOR".equals(admin.getRol())) {
-            throw new RuntimeException("Solo un administrador puede editar retos");
-        }
+    public RetoResponse editarRetoAdmin(Integer idReto, EditarRetoRequest request) {
 
         Reto reto = retoRepository.findById(idReto)
                 .orElseThrow(() -> new RuntimeException("Reto no encontrado"));
@@ -233,4 +247,5 @@ public class RetoService {
                 actualizado.getDuracionHoras()
         );
     }
+
 }

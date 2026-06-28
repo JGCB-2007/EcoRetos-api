@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface RetoRepository extends JpaRepository<Reto, Integer> {
+    List<Reto> findByActivoTrue();
     List<Reto> findByActivoTrueAndFechaInicioLessThanEqualAndFechaFinGreaterThanEqual(
             LocalDateTime fechaInicio,
             LocalDateTime fechaFin

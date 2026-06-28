@@ -6,6 +6,8 @@ import com.ecoretos.api.service.RetoService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.ecoretos.api.dto.EditarRetoRequest;
+import java.util.List;
 
 @RestController
 @RequestMapping("/admin/retos")
@@ -26,7 +28,7 @@ public class AdminRetoController {
     @PutMapping("/{idReto}")
     public ResponseEntity<RetoResponse> editarReto(
             @PathVariable Integer idReto,
-            @Valid @RequestBody CrearRetoRequest request
+            @Valid @RequestBody EditarRetoRequest request
     ) {
         return ResponseEntity.ok(retoService.editarRetoAdmin(idReto, request));
     }
@@ -35,5 +37,10 @@ public class AdminRetoController {
             @PathVariable Integer idReto
     ) {
         return ResponseEntity.ok(retoService.desactivarRetoAdmin(idReto));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<RetoResponse>> listarRetosAdmin() {
+        return ResponseEntity.ok(retoService.listarRetosAdmin());
     }
 }

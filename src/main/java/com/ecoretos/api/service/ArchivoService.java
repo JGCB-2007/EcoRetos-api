@@ -36,7 +36,7 @@ public class ArchivoService {
             Path rutaArchivo = carpeta.resolve(nombreArchivo);
             Files.copy(imagen.getInputStream(), rutaArchivo);
 
-            return "http://192.168.1.12:8080/uploads/" + nombreArchivo;
+            return "http://192.168.0.27:8080/uploads/" + nombreArchivo;
 
         } catch (Exception e) {
             throw new RuntimeException("Error al guardar imagen: " + e.getMessage());

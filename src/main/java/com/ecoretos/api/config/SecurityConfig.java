@@ -2,7 +2,6 @@ package com.ecoretos.api.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -14,23 +13,10 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(
-                                "/ping",
-                                "/auth/**",
-                                "/retos/**",
-                                "/participaciones/**",
-                                "/admin/**",
-                                "/usuarios/**",
-                                "/insignias/**",
-                                "/admin/insignias/**",
-                                "/ranking/**",
-                                "/propuestas/**",
-                                "/admin/propuestas/**",
-                                "/uploads/**"
-                        ).permitAll()
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 )
-                .httpBasic(Customizer.withDefaults());
+                .httpBasic(httpBasic -> httpBasic.disable())
+                .formLogin(form -> form.disable());
 
         return http.build();
     }
