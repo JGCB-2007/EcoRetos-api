@@ -68,6 +68,21 @@ public class RetoService {
                 "Reto aceptado correctamente"
         );
     }
+
+    public String cancelarReto(Integer idReto, Integer idUsuario) {
+        Participacion participacion = participacionRepository
+                .findByUsuario_IdUsuarioAndReto_IdReto(idUsuario, idReto)
+                .orElseThrow(() -> new RuntimeException("Participación no encontrada"));
+
+        if (!"ACEPTADO".equals(participacion.getEstado())) {
+            throw new RuntimeException("Solo se pueden cancelar retos aceptados");
+        }
+
+        participacionRepository.delete(participacion);
+
+        return "Reto cancelado correctamente";
+    }
+
     public List<RetoResponse> listarRetosActivos() {
         LocalDateTime ahora = LocalDateTime.now();
 

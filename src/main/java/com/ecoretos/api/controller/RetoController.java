@@ -8,6 +8,7 @@ import com.ecoretos.api.dto.AceptarRetoRequest;
 import com.ecoretos.api.dto.ParticipacionResponse;
 import jakarta.validation.Valid;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/retos")
@@ -29,5 +30,13 @@ public class RetoController {
             @Valid @RequestBody AceptarRetoRequest request
     ) {
         return ResponseEntity.ok(retoService.aceptarReto(idReto, request.getIdUsuario()));
+    }
+    @DeleteMapping("/{idReto}/cancelar/{idUsuario}")
+    public ResponseEntity<Map<String, String>> cancelarReto(
+            @PathVariable Integer idReto,
+            @PathVariable Integer idUsuario
+    ) {
+        String mensaje = retoService.cancelarReto(idReto, idUsuario);
+        return ResponseEntity.ok(Map.of("mensaje", mensaje));
     }
 }
