@@ -25,7 +25,8 @@ public class SecurityConfig {
                                 "/admin/insignias/**",
                                 "/ranking/**",
                                 "/propuestas/**",
-                                "/admin/propuestas/**"
+                                "/admin/propuestas/**",
+                                "/uploads/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
