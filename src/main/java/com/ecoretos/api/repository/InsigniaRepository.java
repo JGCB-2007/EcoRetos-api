@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface InsigniaRepository extends JpaRepository<Insignia, Integer> {
     List<Insignia> findByActivaTrueOrderByPuntosMinimosAsc();
+    Long countByActivaTrue();
 }

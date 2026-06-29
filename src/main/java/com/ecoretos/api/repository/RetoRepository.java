@@ -12,4 +12,5 @@ public interface RetoRepository extends JpaRepository<Reto, Integer> {
             LocalDateTime fechaInicio,
             LocalDateTime fechaFin
     );
+    Long countByActivoTrue();
 }

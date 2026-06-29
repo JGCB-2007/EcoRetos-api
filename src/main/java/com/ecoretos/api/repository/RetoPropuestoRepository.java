@@ -10,4 +10,6 @@ public interface RetoPropuestoRepository extends JpaRepository<RetoPropuesto, In
     List<RetoPropuesto> findByEstadoOrderByFechaPropuestaDesc(String estado);
 
     List<RetoPropuesto> findByUsuario_IdUsuarioOrderByFechaPropuestaDesc(Integer idUsuario);
+
+    Long countByEstado(String estado);
 }
