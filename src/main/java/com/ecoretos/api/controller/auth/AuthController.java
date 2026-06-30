@@ -1,4 +1,4 @@
-package com.ecoretos.api.controller;
+package com.ecoretos.api.controller.auth;
 
 import com.ecoretos.api.dto.LoginRequest;
 import com.ecoretos.api.dto.LoginResponse;
