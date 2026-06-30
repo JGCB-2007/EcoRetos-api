@@ -1,4 +1,4 @@
-package com.ecoretos.api.controller;
+package com.ecoretos.api.controller.propuesta;
 
 import com.ecoretos.api.dto.CrearPropuestaRequest;
 import com.ecoretos.api.dto.PropuestaResponse;
