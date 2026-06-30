@@ -1,4 +1,4 @@
-package com.ecoretos.api.controller;
+package com.ecoretos.api.controller.reto;
 
 import com.ecoretos.api.dto.RetoResponse;
 import com.ecoretos.api.service.RetoService;
