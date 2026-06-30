@@ -1,4 +1,4 @@
-package com.ecoretos.api.controller;
+package com.ecoretos.api.controller.insignia;
 
 import com.ecoretos.api.dto.InsigniaResponse;
 import com.ecoretos.api.service.InsigniaService;
