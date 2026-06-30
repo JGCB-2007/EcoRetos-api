@@ -1,4 +1,4 @@
-package com.ecoretos.api.controller;
+package com.ecoretos.api.controller.admin;
 
 import com.ecoretos.api.dto.CrearRetoRequest;
 import com.ecoretos.api.dto.RetoResponse;

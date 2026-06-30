@@ -1,4 +1,4 @@
-package com.ecoretos.api.controller;
+package com.ecoretos.api.controller.admin;
 
 import com.ecoretos.api.dto.AdminDashboardResponse;
 import com.ecoretos.api.service.AdminDashboardService;
