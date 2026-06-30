@@ -1,4 +1,4 @@
-package com.ecoretos.api.controller;
+package com.ecoretos.api.controller.impactoUsuario;
 
 import com.ecoretos.api.dto.ImpactoUsuarioResponse;
 import com.ecoretos.api.service.ImpactoUsuarioService;
