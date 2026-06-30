@@ -1,4 +1,4 @@
-package com.ecoretos.api.controller;
+package com.ecoretos.api.controller.ranking;
 
 import com.ecoretos.api.dto.RankingResponse;
 import com.ecoretos.api.service.RankingService;
