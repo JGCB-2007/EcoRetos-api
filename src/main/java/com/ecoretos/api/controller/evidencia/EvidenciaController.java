@@ -1,4 +1,4 @@
-package com.ecoretos.api.controller;
+package com.ecoretos.api.controller.evidencia;
 
 import com.ecoretos.api.dto.EvidenciaResponse;
 import com.ecoretos.api.service.ArchivoService;
