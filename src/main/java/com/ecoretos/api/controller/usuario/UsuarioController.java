@@ -1,4 +1,4 @@
-package com.ecoretos.api.controller;
+package com.ecoretos.api.controller.usuario;
 
 import com.ecoretos.api.dto.UsuarioResponse;
 import com.ecoretos.api.service.UsuarioService;
