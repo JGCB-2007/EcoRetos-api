@@ -1,4 +1,4 @@
-package com.ecoretos.api.controller;
+package com.ecoretos.api.controller.participacion;
 
 import com.ecoretos.api.dto.MisParticipacionesResponse;
 import com.ecoretos.api.service.ParticipacionService;
